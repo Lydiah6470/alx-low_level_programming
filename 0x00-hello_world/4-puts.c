@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
- * description: main- printing. 
- * print an output using puts.
+ * Description: main -Prints out a string to stdout.
+ * Return: 0 if success.
  */
 int main(void)
 {
