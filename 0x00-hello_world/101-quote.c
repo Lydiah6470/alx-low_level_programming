@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 /**
  * main- prints string to stdout.
  * return: 0 if success
