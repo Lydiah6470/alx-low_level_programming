@@ -1,4 +1,4 @@
-#include < stdio.h>
+#include <stdio.h>
 /**
  * Description: main- Prints a  string to stdout.
  * Return: 0 if succes.
