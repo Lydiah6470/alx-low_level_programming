@@ -10,8 +10,9 @@ void times_table(void)
 	int a = 0;
 	int b;
 	int c;
+
 	while (a < 10)
-	}
+	{
 		b = 0;
 		while (b < 10)
 		{
