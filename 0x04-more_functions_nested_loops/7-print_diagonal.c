@@ -1,7 +1,5 @@
 #include "main.h"
 
-
-
 /**
  * print_diagonal - printing diagonal in the terminal
  * @n: input variable
@@ -23,4 +21,5 @@ void print_diagonal(int n)
 		_putchar('\\');
 		_putchar('\n');	
 	}
+
 }
