@@ -1,9 +1,11 @@
 #include "main.h"
 
+
 /**
  * print_number - prints an integer
  * @n:.input
  */
+
 
 void print_number(int n)
 {
