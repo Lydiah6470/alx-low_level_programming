@@ -4,6 +4,7 @@
 /**
  * print_number - prints an integer
  * @n:.input
+ * Return:void
  */
 
 
