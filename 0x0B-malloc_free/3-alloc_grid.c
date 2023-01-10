@@ -7,7 +7,7 @@
  *
  * @head: A pointer to the first node of the list to free
  */
-void free_list(list_t *head)
+void free_list(sigset_t *head)
 {
 	if (head)
 	{
