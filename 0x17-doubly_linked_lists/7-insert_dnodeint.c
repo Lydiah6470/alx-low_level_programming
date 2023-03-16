@@ -1,50 +1,48 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
-  * insert_dnodeint_at_index -  inserts a new node at a given position
-  * @h: header of double linked list
-  * @idx: index of the node, starting from 0
-  * @n: is a given number
-  * Return: a address of nth node
-  */
+ * insert_dnodeint_at_index - inserts a new node at a given position
+ * @h: double pointer to the beginning of the linked list
+ * @idx: index at which to insert the new node
+ * @n: data to enter into new node
+ *
+ * Return: pointer to the new node, or NULL on failure
+ */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new, *headcopy = *h;
+	dlistint_t *new, *next, *current;
 	unsigned int i;
 
+	if (h == NULL)
+		return (NULL);
+	if (idx != 0)
+	{
+		current = *h;
+		for (i = 0; i < idx - 1 && current != NULL; i++)
+			current = current->next;
+		if (current == NULL)
+			return (NULL);
+	}
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);
 	new->n = n;
-	while (headcopy != NULL && headcopy->prev != NULL)
-	{
-		headcopy = headcopy->prev;
-		*h = (*h)->prev;
-	}
 	if (idx == 0)
 	{
-		free(new);
-		return (add_dnodeint(h, n));
+		next = *h;
+		*h = new;
+		new->prev = NULL;
 	}
-
-	for (i = 0; (i < idx - 1) && headcopy != NULL; i++)
-		headcopy = headcopy->next;
-	if (headcopy == NULL)
+	else
 	{
-		free(new);
-		return (NULL);
+		new->prev = current;
+		next = current->next;
+		current->next = new;
 	}
-	if (headcopy->next == NULL)
-	{
-		new->next = NULL;
-		new->prev = headcopy;
-		headcopy->next = new;
-	} else
-	{
-		new->next = headcopy->next;
-		new->prev = headcopy;
-		headcopy->next->prev = new;
-		headcopy->next = new;
-	}
+	new->next = next;
+	if (new->next != NULL)
+		new->next->prev = new;
 	return (new);
 }
